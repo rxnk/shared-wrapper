@@ -100,7 +100,7 @@ class Highlight(BaseModel):
     items: Optional[List[Story]] = Field(
         [], description='This is provided via /highlight.', title='Items'
     )
-
+    url: str = Field(..., title='Url')
 
 class InstagramUser(BaseModel):
     id: str = Field(..., title='Id')
