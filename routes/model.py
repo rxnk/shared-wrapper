@@ -32,7 +32,6 @@ class Story(BaseModel):
     taken_at: datetime = Field(..., title='Taken At')
     media_type: int = Field(..., title='Media Type')
     media: Media = Field(..., description='Redistributed media file.')
-    sponsor_tags: Optional[List[SimpleUser]] = Field([], title='Sponsor Tags')
     url: str = Field(..., title='Url')
     is_video: bool = Field(..., title='Is Video')
 
