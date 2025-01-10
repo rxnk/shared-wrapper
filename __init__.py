@@ -13,7 +13,8 @@ class SharedAPI:
     def __init__(self, api_key: str) -> None:
         self.api_key = api_key
         self.session = ClientSession(
-            base_url="https://shared.egirl.software", headers={"Authorization": api_key}
+            base_url="https://shared.egirl.software",
+            headers={"Authorization": api_key},
         )
         self.instagram = Instagram(self)
 
