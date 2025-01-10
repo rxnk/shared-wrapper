@@ -133,7 +133,7 @@ class Post(BaseModel):
     caption: Optional[str] = Field(None, title='Caption')
     taken_at: datetime = Field(..., title='Taken At')
     is_video: bool = Field(..., title='Is Video')
-    media: Media = Field(..., description='Redistributed media file.')
+    media: List[Media] = Field(..., description='Redistributed media file.')
     user: Union[SimpleUser, InstagramUser] = Field(..., title='User')
     statistics: PostStatistics
     url: str = Field(..., title='Url')
