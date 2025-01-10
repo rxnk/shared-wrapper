@@ -132,7 +132,6 @@ class Post(BaseModel):
     shortcode: str = Field(..., title='Shortcode')
     caption: Optional[str] = Field(None, title='Caption')
     taken_at: datetime = Field(..., title='Taken At')
-    is_video: bool = Field(..., title='Is Video')
     media: List[Media] = Field(..., description='Redistributed media file.')
     user: Union[SimpleUser, InstagramUser] = Field(..., title='User')
     statistics: PostStatistics
