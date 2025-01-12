@@ -1,6 +1,6 @@
 from typing import Literal
 from aiohttp import ClientSession
-from .routes import Instagram
+from .routes import Instagram, TikTok
 
 
 class SharedAPI:
@@ -9,6 +9,7 @@ class SharedAPI:
     api_key: str
     session: ClientSession
     instagram: Instagram
+    tiktok: TikTok
 
     def __init__(self, api_key: str) -> None:
         self.api_key = api_key
@@ -17,6 +18,7 @@ class SharedAPI:
             headers={"Authorization": api_key},
         )
         self.instagram = Instagram(self)
+        self.tiktok = TikTok(self)
 
     async def request(self, method: Literal["GET", "POST"], endpoint: str, **kwargs):
         """Submit a request to the API."""
