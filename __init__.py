@@ -11,10 +11,10 @@ class SharedAPI:
     instagram: Instagram
     tiktok: TikTok
 
-    def __init__(self, api_key: str) -> None:
+    def __init__(self, base_url: str, api_key: str) -> None:
         self.api_key = api_key
         self.session = ClientSession(
-            base_url="https://shared.egirl.software",
+            base_url=base_url,
             headers={"Authorization": api_key},
         )
         self.instagram = Instagram(self)
@@ -38,3 +38,4 @@ class SharedAPI:
         """Close the API session."""
 
         await self.session.close()
+
