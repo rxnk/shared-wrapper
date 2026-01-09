@@ -123,8 +123,8 @@ class InstagramUser(BaseModel):
     links: Optional[List[ApiRoutesInstagramModelsUserBioLink]] = Field(
         [], title='Links'
     )
-    highlights: Optional[List] = Field([], title='Highlights')
-    posts: Optional[List] = Field([], title='Posts')
+    highlights: Optional[List[Highlight]] = Field([], title='Highlights')
+    posts: Optional[List[Post]] = Field([], title='Posts')
     url: str = Field(..., title='Url')
 
 
