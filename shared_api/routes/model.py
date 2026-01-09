@@ -124,6 +124,7 @@ class InstagramUser(BaseModel):
         [], title='Links'
     )
     highlights: Optional[List] = Field([], title='Highlights')
+    posts: Optional[List] = Field([], title='Posts')
     url: str = Field(..., title='Url')
 
 
