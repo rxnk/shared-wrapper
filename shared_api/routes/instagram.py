@@ -18,20 +18,20 @@ class Instagram:
         data = await self.api.request("GET", "/instagram/post", params={"url": url})
         return Post(**data)
 
-    async def user(self, username: str) -> InstagramUser:
+    async def user(self, username: str, reserved: bool = False) -> InstagramUser:
         """Fetch an Instagram user's profile."""
 
-        data = await self.api.request("GET", f"/instagram/{username}")
+        data = await self.api.request("GET", f"/instagram/{username}", params={"reserved": reserved})
         return InstagramUser(**data)
 
-    async def story(self, username: str) -> InstagramStoryResponse:
+    async def story(self, username: str, reserved: bool = False) -> InstagramStoryResponse:
         """Fetch an Instagram user's story."""
 
-        data = await self.api.request("GET", f"/instagram/{username}/story")
+        data = await self.api.request("GET", f"/instagram/{username}/story", params={"reserved": reserved})
         return InstagramStoryResponse(**data)
 
-    async def highlight(self, highlight_id: str) -> Highlight:
+    async def highlight(self, highlight_id: str, reserved: bool = False) -> Highlight:
         """Fetch an Instagram highlight."""
 
-        data = await self.api.request("GET", f"/instagram/highlight/{highlight_id}")
+        data = await self.api.request("GET", f"/instagram/highlight/{highlight_id}", params={"reserved": reserved})
         return Highlight(**data)
