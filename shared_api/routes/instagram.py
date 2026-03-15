@@ -15,23 +15,23 @@ class Instagram:
     async def post(self, url: str) -> Post:
         """Fetch an Instagram post."""
 
-        data = await self.api.request("GET", "/instagram/post", params={"url": url})
+        data = await self.api.request("GET", "/instagram/post", params={"url": url, "reserved": "true"})
         return Post(**data)
 
     async def user(self, username: str, reserved: bool = False) -> InstagramUser:
         """Fetch an Instagram user's profile."""
 
-        data = await self.api.request("GET", f"/instagram/{username}", params={"reserved": reserved})
+        data = await self.api.request("GET", f"/instagram/{username}", params={"reserved": str(reserved).lower()})
         return InstagramUser(**data)
 
     async def story(self, username: str, reserved: bool = False) -> InstagramStoryResponse:
         """Fetch an Instagram user's story."""
 
-        data = await self.api.request("GET", f"/instagram/{username}/story", params={"reserved": reserved})
+        data = await self.api.request("GET", f"/instagram/{username}/story", params={"reserved": str(reserved).lower()})
         return InstagramStoryResponse(**data)
 
     async def highlight(self, highlight_id: str, reserved: bool = False) -> Highlight:
         """Fetch an Instagram highlight."""
 
-        data = await self.api.request("GET", f"/instagram/highlight/{highlight_id}", params={"reserved": reserved})
+        data = await self.api.request("GET", f"/instagram/highlight/{highlight_id}", params={"reserved": str(reserved).lower()})
         return Highlight(**data)
